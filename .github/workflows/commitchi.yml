@@ -1,0 +1,73 @@
+name: Care for Commitchi
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '23 */4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: commitchi-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm test
+
+  care:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Grow pet from public commit contributions
+        env:
+          PET_GITHUB_TOKEN: ${{ secrets.PET_GITHUB_TOKEN || github.token }}
+        run: npm run update
+      - name: Save the pet in its private home
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add pet/data/ledger.json pet/data/state.json assets/commitchi.svg assets/commitchi-light.svg
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: care for Commitchi [skip ci]'
+            git push origin HEAD:main
+          fi
+      - name: Publish badge images only
+        env:
+          PUBLISH_DEPLOY_KEY: ${{ secrets.PUBLISH_DEPLOY_KEY }}
+        run: |
+          if [ -z "$PUBLISH_DEPLOY_KEY" ]; then
+            echo '::notice::Pet saved privately. Public badge publishing needs PUBLISH_DEPLOY_KEY.'
+            exit 0
+          fi
+          key_file="$RUNNER_TEMP/commitchi-publish-key"
+          known_hosts="$RUNNER_TEMP/commitchi-known-hosts"
+          trap 'rm -f "$key_file" "$known_hosts"' EXIT
+          umask 077
+          printf '%s\n' "$PUBLISH_DEPLOY_KEY" > "$key_file"
+          # Obtain GitHub host keys through its official HTTPS API instead
+          # of trusting an unauthenticated ssh-keyscan result.
+          curl --fail --silent --show-error https://api.github.com/meta | python3 -c 'import json,sys; [print("github.com " + k) for k in json.load(sys.stdin)["ssh_keys"]]' > "$known_hosts"
+          export GIT_SSH_COMMAND="ssh -i $key_file -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$known_hosts"
+          npm run publish:badge

@@ -1,0 +1,17 @@
+{
+  "name": "commitchi",
+  "version": "0.1.0",
+  "description": "A pixel companion that grows with your GitHub commits.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "test": "node --test pet/*.test.mjs",
+    "update": "node pet/update.mjs",
+    "publish:badge": "node pet/publish.mjs",
+    "preview": "python3 -m http.server 8770 --bind 127.0.0.1"
+  },
+  "repository": {"type":"git","url":"https://github.com/tkv00/commitchi.git"},
+  "keywords": ["github-profile","readme","tamagotchi","pixel-art","github-actions"]
+}
