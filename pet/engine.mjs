@@ -1,3 +1,5 @@
+import { characterFor } from './characters.mjs';
+
 const ISO_DATE = /^(\d{4})-(\d{2})-(\d{2})$/;
 const MAX_SPAN = 3660;
 
@@ -158,7 +160,12 @@ export function projectPet(ledger, options = {}) {
     if (closed && commits === 0 && idleDays >= deathThreshold) {
       status = 'dead';
       deathDate = date;
-      history.push({ generation, status: 'dead', deathDate: date });
+      history.push({
+        generation,
+        status: 'dead',
+        deathDate: date,
+        characterId: characterFor(ledger.owner, generation).id
+      });
       previousActive = false;
     }
   }
@@ -169,6 +176,7 @@ export function projectPet(ledger, options = {}) {
   const daysAlive = spanDays(bornOn, deathDate ?? asOf).length;
   return {
     schemaVersion: 1, owner: ledger.owner, adoptedOn, asOf, generation, status, mood,
+    character: characterFor(ledger.owner, generation),
     level, xp, nextLevelXp: level * (level + 1) * 10, food,
     totalFoodEarned, totalFoodEaten, commitRemainder: remainder, idleDays, streak, bestStreak,
     totalCommits, days, history, health: dead ? 0 : Math.max(1, 100 - idleDays * 34), latestCommitDate,

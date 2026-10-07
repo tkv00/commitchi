@@ -24,9 +24,9 @@ export async function updatePet({root=defaultRoot,owner='tkv00',name='커밋치'
   const observations=await fetchDays({owner,token,from,to:asOf,includePrivate,excludeRepository});
   const next={...mergeDays(ledger,observations,asOf),source};
   const state=projectPet(next,{asOf});
-  let spriteDataUri;
-  try {spriteDataUri=`data:image/png;base64,${(await readFile(join(root,'assets/sprites/commitchi.png'))).toString('base64')}`;}
-  catch(error) {if(error.code!=='ENOENT') throw error;}
+  // A missing species asset must not silently turn every pet into one mascot.
+  // Read it before writing anything so a broken release preserves the pet.
+  const spriteDataUri=`data:image/png;base64,${(await readFile(join(root,state.character.sprite))).toString('base64')}`;
   const outputs=[
     ['pet/data/ledger.json',json(next)],['pet/data/state.json',json(state)],
     ['assets/commitchi.svg',renderPet(state,{owner,name,spriteDataUri,theme:'dark'})],

@@ -6,6 +6,14 @@
   "generation": 1,
   "status": "alive",
   "mood": "happy",
+  "character": {
+    "id": "spark",
+    "name": "찌릿콩",
+    "species": "rabbit-chick",
+    "sprite": "assets/sprites/commitchi.png",
+    "accent": "#77e6c4",
+    "description": "토끼 귀와 병아리 발을 가진 기본 캐릭터"
+  },
   "level": 1,
   "xp": 10,
   "nextLevelXp": 20,

@@ -1,1 +1,41 @@
-<!doctype html><meta charset="utf-8"><title>COMMITCHI badge preview</title><style>body{margin:0;background:#dce6eb;font:14px system-ui;color:#243244}main{max-width:1140px;margin:24px auto}section{display:grid;grid-template-columns:repeat(2,minmax(560px,1fr));gap:12px}figure{margin:0;padding:12px;background:#fff;border-radius:12px}img{width:100%;image-rendering:pixelated}button{margin:12px 4px 0 0;padding:8px 12px;border:0;border-radius:8px;cursor:pointer}@media(max-width:1150px){section{grid-template-columns:minmax(560px,1fr)}}</style><main><p>Live badge first; demo controls are isolated fixtures.</p><section><figure><figcaption>live · dark</figcaption><img id="live" src="../assets/commitchi.svg" alt="live commitchi"></figure><figure><figcaption>demo · light</figcaption><img id="demo" src="../assets/commitchi-light.svg" alt="demo commitchi"></figure></section><button data-mood="happy">happy</button><button data-mood="hungry">hungry</button><button data-mood="critical">critical</button><button data-mood="dead">dead</button><button data-mood="crown">level 10</button></main><script type="module">import{renderPet}from'./render.mjs';const img=document.querySelector('#demo');const base={owner:'demo',level:3,xp:80,nextLevelXp:120,food:4,health:100,totalCommits:18,streak:4};let spriteDataUri='';fetch('../assets/sprites/commitchi.png').then(r=>r.blob()).then(blob=>new Promise(resolve=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.readAsDataURL(blob)})).then(data=>{spriteDataUri=data;});document.querySelectorAll('[data-mood]').forEach(b=>b.onclick=()=>{const k=b.dataset.mood,s={...base,mood:k==='crown'?'happy':k,status:k==='dead'?'dead':'alive',level:k==='crown'?10:3,xp:k==='crown'?920:80,nextLevelXp:k==='crown'?1100:120,health:k==='hungry'?66:k==='critical'?32:k==='dead'?0:100,idleDays:k==='dead'?4:k==='critical'?2:k==='hungry'?1:0};img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(renderPet(s,{theme:'light',owner:'demo',name:'데모 커밋치',spriteDataUri}));});</script>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>커밋치 · 픽셀 친구 도감</title>
+  <link rel="stylesheet" href="preview.css">
+  <script type="module" src="preview.mjs"></script>
+</head>
+<body>
+<main>
+  <header>
+    <div><p class="eyebrow">COMMITCHI / PIXEL COLLECTION 01</p><h1>이번 생엔, 누구?</h1>
+    <p class="intro">몸체도, 표정도, 성격도 다른 여덟 픽셀 친구들.<br>커밋으로 키우고, 새로운 세대에서 다시 만나요.</p></div>
+    <span class="count"><strong>08</strong>서로 다른 친구</span>
+  </header>
+  <section aria-labelledby="collection-title">
+    <div class="section-heading"><h2 id="collection-title">친구 도감</h2><p>친구를 눌러 README 배지로 만나보세요.</p></div>
+    <div id="collection" class="collection"></div>
+  </section>
+  <section class="workbench" aria-labelledby="preview-title">
+    <div class="section-heading"><div><p class="eyebrow">BADGE PLAYGROUND</p><h2 id="preview-title">배지 미리보기</h2></div><span class="pill">데모 · 실제 펫에 영향 없음</span></div>
+    <div class="preview-layout">
+      <div class="badge-area"><img id="demo" alt="선택한 친구의 배지" width="560" height="200"><p id="description" aria-live="polite"></p><p id="error" role="alert"></p></div>
+      <div class="controls">
+        <label for="level">성장 단계</label><select id="level"><option value="1">Lv. 1 · 첫 만남</option><option value="3">Lv. 3 · 아기</option><option value="6">Lv. 6 · 성장</option><option value="10">Lv. 10 · 왕관</option></select>
+        <label for="mood">오늘의 상태</label><select id="mood"><option value="happy">건강해요</option><option value="hungry">배고파요</option><option value="critical">위험해요</option><option value="dead">별이 됐어요</option></select>
+        <label for="theme">README 테마</label><select id="theme"><option value="dark">어두운 테마</option><option value="light">밝은 테마</option></select>
+        <button id="next" class="next">다음 세대 만나기 →</button>
+        <p id="generation-note">같은 세대에서는 같은 친구가 유지됩니다.</p>
+      </div>
+    </div>
+  </section>
+  <section class="live-section" aria-labelledby="live-title">
+    <div><p class="eyebrow">YOUR ACTUAL PET</p><h2 id="live-title">지금 키우는 친구</h2><p>아래 배지는 저장된 실제 커밋 기록입니다.<br>도감에서 친구를 눌러도 바뀌지 않아요.</p></div>
+    <img src="../assets/commitchi.svg" alt="실제 커밋치 배지" width="560" height="200">
+  </section>
+  <footer>커밋 2개 = 먹이 1개 <span>·</span> 8세대 동안 중복 없이 만나요 <span>·</span> 한 바퀴 뒤에는 순환해요</footer>
+</main>
+</body>
+</html>

@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createLedger, mergeDays, projectPet } from './engine.mjs';
+import { characterFor } from './characters.mjs';
 
 const d = (date, commits) => ({ date, commits });
 
@@ -97,7 +98,16 @@ test('a later commit rebirths a dead pet and retains lifetime counters', () => {
   assert.equal(pet.totalFoodEarned, 2);
   assert.equal(pet.history.length, 1);
   assert.equal(pet.history[0].status, 'dead');
+  assert.equal(pet.history[0].characterId, characterFor('kim', 1).id);
+  assert.notEqual(pet.character.id, pet.history[0].characterId);
   assert.equal(pet.daysAlive, 1);
+});
+
+test('projects a character for legacy ledgers without character state', () => {
+  const ledger = mergeDays(createLedger('tkv00', '2026-10-01'), [d('2026-10-01', 2)], '2026-10-01');
+  const pet = projectPet(ledger, { asOf: '2026-10-01' });
+  assert.equal(pet.character.id, 'spark');
+  assert.equal(pet.character.species, 'rabbit-chick');
 });
 
 test('inactive streak does not reset until the date is closed; adjacent active days extend it', () => {

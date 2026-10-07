@@ -8,6 +8,8 @@
 
 Commitchi is a small GitHub README pet powered by your public commit activity. The pet grows when you feed it, changes stage as it levels up, and dies after a long inactive period. A later commit starts a new generation.
 
+Each generation has one of eight collectible species. `pet/characters.mjs` maps the owner and generation deterministically: `tkv00` generation 1 remains `spark`, later generations advance through the eight-entry cycle, and generation 9 begins the same cycle again. A roster cycle repeats after eight generations; it does not promise globally unique species forever, and a user cannot repeat a species within one eight-generation cycle. Artwork is generated ahead of time, so updates do not call an image model or incur AI generation cost. A dead pet keeps its own species silhouette while showing the dead state.
+
 The source repository can stay private. The updater reads GitHub contribution data, renders the badge, and publishes only the two SVG assets to a branch in the public profile repository.
 
 [한국어 가이드](docs/README.ko.md)
@@ -86,6 +88,8 @@ Preview the live badge and demo states locally:
 npm run preview
 ```
 
+The gallery preview also shows all eight species and a selected badge with level, mood, and theme demo controls. These controls render fixtures only; they never edit the saved pet state.
+
 ## Publishing model
 
 The source repository is private and is updated by GitHub Actions every four hours. The workflow runs the updater and calls the publisher only when `PUBLISH_DEPLOY_KEY` is present. Without that secret, the source repository still updates and the public assets are not pushed.
@@ -96,9 +100,14 @@ Do not put a GitHub token or private key in an image URL, README, commit, or iss
 
 The current account plan does not support Pages for private repositories. This setup therefore publishes only the badge files to the public profile repository branch described above.
 
-## Assets
+## Character roster and assets
 
-- `assets/sprites/commitchi.png` is the source pixel sprite.
+- `pet/characters.mjs` contains the stable eight-species roster and owner/generation mapping.
+- `assets/sprites/commitchi.png` is `spark`, the original rabbit-chick sprite.
+- `assets/sprites/mogu.png` is the coral mushroom species.
+- `assets/sprites/pudding.png` is the aqua droplet species.
+- `assets/sprites/luna.png` is the lavender bat species.
+- `assets/sprites/bolt.png`, `moss.png`, `ember.png`, and `cloud.png` complete the eight-entry cycle.
 - `assets/commitchi.svg` is the dark theme badge generated from the current state.
 - `assets/commitchi-light.svg` is the light theme badge generated from the current state.
 
