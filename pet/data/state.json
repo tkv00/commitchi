@@ -15,16 +15,16 @@
     "description": "토끼 귀와 병아리 발을 가진 기본 캐릭터"
   },
   "level": 3,
-  "xp": 60,
+  "xp": 70,
   "nextLevelXp": 120,
   "food": 0,
-  "totalFoodEarned": 6,
-  "totalFoodEaten": 6,
-  "commitRemainder": 0,
+  "totalFoodEarned": 7,
+  "totalFoodEaten": 7,
+  "commitRemainder": 1,
   "idleDays": 0,
   "streak": 4,
   "bestStreak": 4,
-  "totalCommits": 12,
+  "totalCommits": 15,
   "days": [
     {
       "date": "2026-10-07",
@@ -40,7 +40,7 @@
     },
     {
       "date": "2026-10-10",
-      "commits": 2
+      "commits": 5
     }
   ],
   "history": [],
