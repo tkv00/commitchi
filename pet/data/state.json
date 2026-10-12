@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "owner": "tkv00",
   "adoptedOn": "2026-10-07",
-  "asOf": "2026-10-11",
+  "asOf": "2026-10-12",
   "generation": 1,
   "status": "alive",
-  "mood": "happy",
+  "mood": "hungry",
   "character": {
     "id": "spark",
     "name": "찌릿콩",
@@ -21,8 +21,8 @@
   "totalFoodEarned": 7,
   "totalFoodEaten": 7,
   "commitRemainder": 1,
-  "idleDays": 0,
-  "streak": 4,
+  "idleDays": 1,
+  "streak": 0,
   "bestStreak": 4,
   "totalCommits": 15,
   "days": [
@@ -45,10 +45,14 @@
     {
       "date": "2026-10-11",
       "commits": 0
+    },
+    {
+      "date": "2026-10-12",
+      "commits": 0
     }
   ],
   "history": [],
-  "health": 100,
+  "health": 66,
   "latestCommitDate": "2026-10-10",
-  "daysAlive": 5
+  "daysAlive": 6
 }
