@@ -17,14 +17,14 @@
   "level": 7,
   "xp": 450,
   "nextLevelXp": 560,
-  "food": 99,
-  "totalFoodEarned": 144,
+  "food": 100,
+  "totalFoodEarned": 145,
   "totalFoodEaten": 45,
   "commitRemainder": 1,
   "idleDays": 0,
   "streak": 1,
   "bestStreak": 14,
-  "totalCommits": 289,
+  "totalCommits": 291,
   "days": [
     {
       "date": "2026-10-07",
@@ -88,7 +88,7 @@
     },
     {
       "date": "2026-10-22",
-      "commits": 90
+      "commits": 92
     }
   ],
   "history": [],
