@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "owner": "tkv00",
   "adoptedOn": "2026-10-07",
-  "asOf": "2026-10-23",
+  "asOf": "2026-10-24",
   "generation": 1,
   "status": "alive",
   "mood": "happy",
@@ -15,16 +15,16 @@
     "description": "토끼 귀와 병아리 발을 가진 기본 캐릭터"
   },
   "level": 7,
-  "xp": 480,
+  "xp": 510,
   "nextLevelXp": 560,
-  "food": 114,
-  "totalFoodEarned": 162,
-  "totalFoodEaten": 48,
-  "commitRemainder": 0,
+  "food": 122,
+  "totalFoodEarned": 173,
+  "totalFoodEaten": 51,
+  "commitRemainder": 1,
   "idleDays": 0,
-  "streak": 2,
+  "streak": 3,
   "bestStreak": 14,
-  "totalCommits": 324,
+  "totalCommits": 347,
   "days": [
     {
       "date": "2026-10-07",
@@ -93,10 +93,14 @@
     {
       "date": "2026-10-23",
       "commits": 33
+    },
+    {
+      "date": "2026-10-24",
+      "commits": 23
     }
   ],
   "history": [],
   "health": 100,
-  "latestCommitDate": "2026-10-23",
-  "daysAlive": 17
+  "latestCommitDate": "2026-10-24",
+  "daysAlive": 18
 }
