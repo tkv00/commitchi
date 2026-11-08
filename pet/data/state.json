@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "owner": "tkv00",
   "adoptedOn": "2026-10-07",
-  "asOf": "2026-11-07",
+  "asOf": "2026-11-08",
   "generation": 1,
   "status": "alive",
-  "mood": "hungry",
+  "mood": "critical",
   "character": {
     "id": "spark",
     "name": "찌릿콩",
@@ -15,13 +15,13 @@
     "description": "토끼 귀와 병아리 발을 가진 기본 캐릭터"
   },
   "level": 10,
-  "xp": 930,
+  "xp": 960,
   "nextLevelXp": 1100,
-  "food": 133,
+  "food": 130,
   "totalFoodEarned": 226,
-  "totalFoodEaten": 93,
+  "totalFoodEaten": 96,
   "commitRemainder": 1,
-  "idleDays": 1,
+  "idleDays": 2,
   "streak": 0,
   "bestStreak": 14,
   "totalCommits": 453,
@@ -153,10 +153,14 @@
     {
       "date": "2026-11-07",
       "commits": 0
+    },
+    {
+      "date": "2026-11-08",
+      "commits": 0
     }
   ],
   "history": [],
-  "health": 66,
+  "health": 32,
   "latestCommitDate": "2026-11-05",
-  "daysAlive": 32
+  "daysAlive": 33
 }
