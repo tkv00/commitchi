@@ -5,7 +5,7 @@
   "asOf": "2026-11-09",
   "generation": 1,
   "status": "alive",
-  "mood": "critical",
+  "mood": "happy",
   "character": {
     "id": "spark",
     "name": "찌릿콩",
@@ -17,14 +17,14 @@
   "level": 10,
   "xp": 990,
   "nextLevelXp": 1100,
-  "food": 127,
-  "totalFoodEarned": 226,
+  "food": 131,
+  "totalFoodEarned": 230,
   "totalFoodEaten": 99,
-  "commitRemainder": 1,
-  "idleDays": 3,
-  "streak": 0,
+  "commitRemainder": 0,
+  "idleDays": 0,
+  "streak": 1,
   "bestStreak": 14,
-  "totalCommits": 453,
+  "totalCommits": 460,
   "days": [
     {
       "date": "2026-10-07",
@@ -160,11 +160,11 @@
     },
     {
       "date": "2026-11-09",
-      "commits": 0
+      "commits": 7
     }
   ],
   "history": [],
-  "health": 1,
-  "latestCommitDate": "2026-11-05",
+  "health": 100,
+  "latestCommitDate": "2026-11-09",
   "daysAlive": 34
 }
