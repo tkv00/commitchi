@@ -3,28 +3,28 @@
   "owner": "tkv00",
   "adoptedOn": "2026-10-07",
   "asOf": "2026-11-24",
-  "generation": 1,
-  "status": "dead",
-  "mood": "dead",
+  "generation": 2,
+  "status": "alive",
+  "mood": "happy",
   "character": {
-    "id": "spark",
-    "name": "찌릿콩",
-    "species": "rabbit-chick",
-    "sprite": "assets/sprites/commitchi.png",
-    "accent": "#77e6c4",
-    "description": "토끼 귀와 병아리 발을 가진 기본 캐릭터"
+    "id": "mogu",
+    "name": "모구",
+    "species": "mushroom",
+    "sprite": "assets/sprites/mogu.png",
+    "accent": "#ff9f68",
+    "description": "말랑한 버섯 모자를 쓴 숲속 친구"
   },
-  "level": 11,
-  "xp": 1110,
-  "nextLevelXp": 1320,
-  "food": 119,
+  "level": 1,
+  "xp": 0,
+  "nextLevelXp": 20,
+  "food": 0,
   "totalFoodEarned": 230,
   "totalFoodEaten": 111,
-  "commitRemainder": 0,
-  "idleDays": 4,
-  "streak": 0,
+  "commitRemainder": 1,
+  "idleDays": 0,
+  "streak": 1,
   "bestStreak": 14,
-  "totalCommits": 460,
+  "totalCommits": 461,
   "days": [
     {
       "date": "2026-10-07",
@@ -220,7 +220,7 @@
     },
     {
       "date": "2026-11-24",
-      "commits": 0
+      "commits": 1
     }
   ],
   "history": [
@@ -231,7 +231,7 @@
       "characterId": "spark"
     }
   ],
-  "health": 0,
-  "latestCommitDate": "2026-11-09",
-  "daysAlive": 38
+  "health": 100,
+  "latestCommitDate": "2026-11-24",
+  "daysAlive": 1
 }
