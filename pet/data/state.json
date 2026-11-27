@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "owner": "tkv00",
   "adoptedOn": "2026-10-07",
-  "asOf": "2026-11-26",
+  "asOf": "2026-11-27",
   "generation": 2,
   "status": "alive",
-  "mood": "hungry",
+  "mood": "critical",
   "character": {
     "id": "mogu",
     "name": "모구",
@@ -21,7 +21,7 @@
   "totalFoodEarned": 230,
   "totalFoodEaten": 111,
   "commitRemainder": 1,
-  "idleDays": 1,
+  "idleDays": 2,
   "streak": 0,
   "bestStreak": 14,
   "totalCommits": 461,
@@ -229,6 +229,10 @@
     {
       "date": "2026-11-26",
       "commits": 0
+    },
+    {
+      "date": "2026-11-27",
+      "commits": 0
     }
   ],
   "history": [
@@ -239,7 +243,7 @@
       "characterId": "spark"
     }
   ],
-  "health": 66,
+  "health": 32,
   "latestCommitDate": "2026-11-24",
-  "daysAlive": 3
+  "daysAlive": 4
 }
