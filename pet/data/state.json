@@ -5,7 +5,7 @@
   "asOf": "2026-11-28",
   "generation": 2,
   "status": "alive",
-  "mood": "critical",
+  "mood": "happy",
   "character": {
     "id": "mogu",
     "name": "모구",
@@ -15,16 +15,16 @@
     "description": "말랑한 버섯 모자를 쓴 숲속 친구"
   },
   "level": 1,
-  "xp": 0,
+  "xp": 10,
   "nextLevelXp": 20,
   "food": 0,
-  "totalFoodEarned": 230,
-  "totalFoodEaten": 111,
-  "commitRemainder": 1,
-  "idleDays": 3,
-  "streak": 0,
+  "totalFoodEarned": 231,
+  "totalFoodEaten": 112,
+  "commitRemainder": 0,
+  "idleDays": 0,
+  "streak": 1,
   "bestStreak": 14,
-  "totalCommits": 461,
+  "totalCommits": 462,
   "days": [
     {
       "date": "2026-10-07",
@@ -236,7 +236,7 @@
     },
     {
       "date": "2026-11-28",
-      "commits": 0
+      "commits": 1
     }
   ],
   "history": [
@@ -247,7 +247,7 @@
       "characterId": "spark"
     }
   ],
-  "health": 1,
-  "latestCommitDate": "2026-11-24",
+  "health": 100,
+  "latestCommitDate": "2026-11-28",
   "daysAlive": 5
 }
